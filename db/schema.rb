@@ -65,9 +65,11 @@ ActiveRecord::Schema.define(version: 2019_01_04_131804) do
     t.string "title"
     t.string "slug"
     t.text "body"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_questions_on_slug", unique: true
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "user_account_accesses", force: :cascade do |t|
