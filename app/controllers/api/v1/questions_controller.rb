@@ -1,7 +1,8 @@
 module Api
   module V1
     # For handling all requests regading question
-    class QuestionsController < ApplicationController
+    class QuestionsController < ApiController
+      before_action :doorkeeper_authorize!
       before_action :set_question, only: %i[show update destroy]
 
       def index
