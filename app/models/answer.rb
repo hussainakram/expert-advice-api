@@ -1,9 +1,7 @@
-=begin
-Answer Attributes
-  {
-    body: :text
-  }
-=end
+# Answer Attributes
+#  {
+#    body: :text
+#  }
 class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
