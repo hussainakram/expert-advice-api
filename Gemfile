@@ -19,6 +19,8 @@ gem 'doorkeeper'
 gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'validates_email_format_of'
+# for pagination
+gem 'kaminari'
 
 group :development, :test do
   gem 'rubocop'

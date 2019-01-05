@@ -6,9 +6,12 @@ module Api
       before_action :set_question, only: %i[show update destroy]
 
       def index
-        @questions = Question.all
+        page = (params[:page] || '').to_i
+        page = 1 if page == 0
 
-        render json: @questions
+        @questions = Question.all.order(created_at: :desc)
+
+        render json: @questions.page(page)
       end
 
       def show
