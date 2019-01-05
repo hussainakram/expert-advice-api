@@ -50,7 +50,7 @@ module Api
       end
 
       def answer_params
-        params.require(:answer).permit(:body)
+        params.require(:data).require(:attributes).permit(:body)
       end
     end
   end

@@ -20,7 +20,7 @@ module Api
       end
 
       def create
-        @question = Question.new(question_params)
+        @question = current_user.questions.new(question_params)
 
         if @question.save
           render json: @question, status: :created, location: api_v1_question_url(@question)
@@ -48,7 +48,7 @@ module Api
       end
 
       def question_params
-        params.require(:question).permit(:title, :slug, :body)
+        params.require(:data).require(:attributes).permit(:title, :slug, :body)
       end
     end
   end
