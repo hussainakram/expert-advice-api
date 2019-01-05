@@ -7,9 +7,10 @@ module Api
 
       def index
         page = (params[:page] || '').to_i
-        page = 1 if page == 0
+        page = 1 if page.zero?
 
         @questions = Question.all.order(created_at: :desc)
+        @questions = @questions.joins(:tags).where('tags.name IN (?)', params[:tags]) if params[:tags]
 
         render json: @questions.page(page)
       end
