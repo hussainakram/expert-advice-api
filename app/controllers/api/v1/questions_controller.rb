@@ -9,7 +9,7 @@ module Api
         page = (params[:page] || '').to_i
         page = 1 if page == 0
 
-        @questions = Question.all
+        @questions = Question.all.order(created_at: :desc)
 
         render json: @questions.page(page)
       end
