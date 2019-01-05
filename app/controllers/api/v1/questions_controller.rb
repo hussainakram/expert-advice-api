@@ -38,8 +38,7 @@ module Api
       end
 
       def destroy
-        @question.destroy
-        render nothing: true, status: :no_content
+        render json: @question.destroy
       end
 
       private
