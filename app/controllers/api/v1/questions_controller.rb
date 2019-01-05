@@ -10,6 +10,7 @@ module Api
         page = 1 if page == 0
 
         @questions = Question.all.order(created_at: :desc)
+        @questions = @questions.joins(:tags).where('tags.name IN (?)', params[:tags]) if params[:tags]
 
         render json: @questions.page(page)
       end
