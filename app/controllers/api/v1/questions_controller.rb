@@ -38,7 +38,12 @@ module Api
       end
 
       def destroy
-        render json: @question.destroy
+        if current_user == @question.user
+          render json: @question.destroy
+        else
+          @question.errors.messages.merge!(not_owner: 'Only question owner can delete the question')
+          render json: @question.errors, status: :unprocessable_entity
+        end
       end
 
       private
