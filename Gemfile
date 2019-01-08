@@ -21,6 +21,8 @@ gem 'active_model_serializers'
 gem 'validates_email_format_of'
 # for pagination
 gem 'kaminari'
+# for sulgging
+gem 'friendly_id'
 
 group :development, :test do
   gem 'rubocop'
