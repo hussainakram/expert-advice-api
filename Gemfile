@@ -28,7 +28,11 @@ group :development, :test do
   gem 'rubocop'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'rubocop'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
+  gem 'shoulda'
 end
 
 group :development do
