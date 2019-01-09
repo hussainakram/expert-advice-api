@@ -6,8 +6,7 @@ module Api
       before_action :set_question, only: %i[show update destroy]
 
       def index
-        page = (params[:page] || '').to_i
-        page = 1 if page.zero?
+        page = (params[:page] || 1)
 
         @questions = Question.all.order(created_at: :desc)
         @questions = @questions.joins(:tags).where('tags.name IN (?)', params[:tags]) if params[:tags]
